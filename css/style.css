@@ -18,17 +18,34 @@ body {
   border: 1px solid #eee;
 }
 
+#topNavContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 #topNav {
   height: 75px;
+  width: 375px;
   margin: 40px auto 0px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-/* #svg-container {
-  margin-top: 175px;
+/* #navClose {
+  align-self: flex-start;
+  justify-self: center;
+}
+
+#navNext {
+  align-self: flex-end;
+  justify-self: center;
 } */
+
+
 
 #mood {
   margin: 0 auto;
@@ -36,7 +53,7 @@ body {
 
 #blob-shape {
 display: block;
-margin: 100px auto 0px;
+margin: 50% auto 0px;
 }
 
 .navContainer {
@@ -50,6 +67,7 @@ margin: 100px auto 0px;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  background: #F4F4F4;
 }
 
 /* .mainNav {
@@ -72,7 +90,7 @@ margin: 100px auto 0px;
   font-size: 37px;
 }
 
-#talisman {
+#talisman, #navClose {
   cursor: pointer;
 }
 

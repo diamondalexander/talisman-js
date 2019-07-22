@@ -10,17 +10,19 @@
 </head>
 <body>
   <div id="app-container">
+    <div id="topNavContainer" class="hidden">
     <div id="topNav">
-        <div class="item">
-          <svg id="navClose"width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="item" id="navClose" onclick="showMainNav()">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.41421 5.58579C7.63316 4.80474 6.36683 4.80474 5.58579 5.58579C4.80474 6.36684 4.80474 7.63317 5.58579 8.41421L12.1716 15L5.58579 21.5858C4.80474 22.3668 4.80474 23.6332 5.58579 24.4142C6.36684 25.1953 7.63317 25.1953 8.41421 24.4142L15 17.8284L21.5858 24.4142C22.3668 25.1953 23.6332 25.1953 24.4142 24.4142C25.1953 23.6332 25.1953 22.3668 24.4142 21.5858L17.8284 15L24.4142 8.41421C25.1953 7.63317 25.1953 6.36684 24.4142 5.58579C23.6332 4.80474 22.3668 4.80474 21.5858 5.58579L15 12.1716L8.41421 5.58579Z" fill="#3E3E3E"/>
           </svg>
         </div>
-        <div class="item">
-            <svg id="navNext" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="item" id="navNext">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.1005 22.0711C9.31944 22.8521 9.31944 24.1184 10.1005 24.8995C10.8815 25.6805 12.1479 25.6805 12.9289 24.8995L10.1005 22.0711ZM20 15L21.4142 16.4142C22.1952 15.6332 22.1952 14.3668 21.4142 13.5858L20 15ZM12.9289 5.10051C12.1479 4.31946 10.8815 4.31946 10.1005 5.10051C9.31944 5.88155 9.31944 7.14788 10.1005 7.92893L12.9289 5.10051ZM12.9289 24.8995L21.4142 16.4142L18.5858 13.5858L10.1005 22.0711L12.9289 24.8995ZM21.4142 13.5858L12.9289 5.10051L10.1005 7.92893L18.5858 16.4142L21.4142 13.5858Z" fill="#3E3E3E"/>
             </svg>
         </div>
+    </div>
     </div>
     <div id="svg-container">
         <svg id="blob-shape" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +41,24 @@
     </svg>
     </div>
     <div class="navContainer" id="mainNav">
-      <div class="item"><i class="far fa-chart-bar btm-icons"></i></div>
-      <div class="item" onclick="hideMainNav()"><img id="talisman" src="assets/icons/talisman.png" /></div>
-      <div class="item"><i class="fas fa-globe-americas btm-icons"></i></div>
+      <div class="item">
+        <svg id="dash" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="21" y="18" width="8" height="22" rx="1" fill="#3E3E3E"/>
+        <rect x="8" y="26" width="8" height="14" rx="1" fill="#3E3E3E"/>
+        <rect x="34" y="10" width="8" height="30" rx="1" fill="#3E3E3E"/>
+        </svg>
+      </div>
+      <div class="item" onclick="hideMainNav()"><img id="talisman" src="assets/icons/btmNav/mainNav/talisman.png" /></div>
+      <div class="item">
+        <svg id="learn" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="29" r="8" fill="#3E3E3E"/>
+          <circle cx="27" cy="25" r="12" fill="#3E3E3E"/>
+          <circle cx="40.5" cy="32.5" r="4.5" fill="#3E3E3E"/>
+        </svg>
+      </div>
     </div>
     <div class="navContainer hidden" id="checkinNav">
-      <div class="item">
+      <div class="item" onclick="showShapeNav()">
         <svg id="triangle" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.634 6.5C14.0189 5.83333 14.9811 5.83333 15.366 6.5L24.4593 22.25C24.8442 22.9167 24.3631 23.75 23.5933 23.75H5.40673C4.63693 23.75 4.15581 22.9167 4.54071 22.25L13.634 6.5Z" fill="#3E3E3E"/>
         </svg>
@@ -67,6 +81,20 @@
             </svg>
             
       </div>
+    </div>
+
+    <div class="navContainer hidden" id="shapeNav" onclick="showShapeNav()">
+      <div class="item" id="navBack">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.9289 7.92893C20.71 7.14788 20.71 5.88155 19.9289 5.1005C19.1479 4.31946 17.8816 4.31946 17.1005 5.1005L19.9289 7.92893ZM10.0294 15L8.61522 13.5858C7.83418 14.3668 7.83418 15.6332 8.61522 16.4142L10.0294 15ZM17.1005 24.8995C17.8816 25.6805 19.1479 25.6805 19.9289 24.8995C20.71 24.1184 20.71 22.8521 19.9289 22.0711L17.1005 24.8995ZM17.1005 5.1005L8.61522 13.5858L11.4437 16.4142L19.9289 7.92893L17.1005 5.1005ZM8.61522 16.4142L17.1005 24.8995L19.9289 22.0711L11.4437 13.5858L8.61522 16.4142Z" fill="#3E3E3E"/>
+          </svg>
+      </div>
+      <div class="item" id="triangle">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.634 6.5C14.0189 5.83333 14.9811 5.83333 15.366 6.5L24.4593 22.25C24.8442 22.9167 24.3631 23.75 23.5933 23.75H5.40673C4.63693 23.75 4.15581 22.9167 4.54071 22.25L13.634 6.5Z" fill="#3E3E3E"/>
+        </svg>
+      </div>
+
     </div>
     <!-- <div class="color-row">
         <button id="swatch1" onclick="document.getElementById('mood').style.fill = 'red'"></button>
